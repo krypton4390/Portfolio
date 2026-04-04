@@ -1,0 +1,25 @@
+name: Deploy to Namecheap via FTP
+
+on:
+  push:
+    branches:
+      - main  # Adjust this if your branch name is different (e.g., master)
+
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+
+      - name: 📂 Sync files to Namecheap
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # server-dir: public_html/ # Open this if you want to deploy to a subfolder
+          protocol: ftp
+          port: 21
+          # If connection fails, try adding 'local-dir: ./' and 'log-level: verbose'
