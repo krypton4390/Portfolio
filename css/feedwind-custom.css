@@ -1,0 +1,72 @@
+/* feedwind-custom.css */
+/* These styles are intended to be loaded into the FeedWind dashboard */
+
+body, .fw-container {
+    background-color: #1e293b !important; /* var(--bg-secondary) */
+    color: #f8fafc !important; /* var(--text-primary) */
+    font-family: 'Inter', sans-serif !important;
+}
+
+.fw-feed-item {
+    background-color: #1e293b !important;
+    border-bottom: 1px solid #334155 !important; /* var(--border-color) */
+    padding: 20px !important;
+    transition: all 0.3s ease !important;
+}
+
+.fw-feed-item:hover {
+    background-color: #334155 !important; /* var(--card-hover) */
+}
+
+.fw-feed-item-title a {
+    color: #3b82f6 !important; /* var(--accent) */
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    font-size: 1.1rem !important;
+}
+
+.fw-feed-item-title a:hover {
+    color: #2563eb !important; /* var(--accent-hover) */
+}
+
+.fw-feed-item-description {
+    color: #94a3b8 !important; /* var(--text-secondary) */
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    margin-top: 8px !important;
+}
+
+.fw-feed-item-date {
+    color: #64748b !important;
+    font-size: 0.8rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Hide header if needed */
+.fw-header {
+    border-bottom: 2px solid #3b82f6 !important;
+    background-color: #0f172a !important;
+}
+
+.fw-header-title a {
+    color: #f8fafc !important;
+}
+
+/* Scrollbar styling for a premium feel */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3b82f6;
+}
