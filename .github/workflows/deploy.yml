@@ -19,7 +19,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          # server-dir: public_html/ # Open this if you want to deploy to a subfolder
+          server-dir: public_html/ # Open this if you want to deploy to a subfolder
           protocol: ftp
           port: 21
           # If connection fails, try adding 'local-dir: ./' and 'log-level: verbose'
