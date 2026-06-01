@@ -144,64 +144,109 @@
         <section id="projects" class="projects section">
             <div class="container">
                 <h2 class="section-title fade-in">Featured Projects</h2>
+                
+                <!-- Project Filter Buttons -->
+                <div class="project-filters fade-in">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="full-stack">Full Stack</button>
+                    <button class="filter-btn" data-filter="frontend">Frontend</button>
+                    <button class="filter-btn" data-filter="react">React</button>
+                    <button class="filter-btn" data-filter="ai">AI</button>
+                </div>
+
                 <div class="projects-grid">
-                    <!-- Project 1 -->
-                    <div class="project-card fade-in">
+                    <!-- Project 1: e-Pustakalaya -->
+                    <div class="project-card fade-in" data-category="full-stack">
                         <div class="project-img-placeholder dark">
-                            <i class="fas fa-shopping-cart fa-3x"></i>
+                            <i class="fas fa-book-open fa-3x"></i>
                         </div>
                         <div class="project-info">
-                            <span class="project-tag">Web Dev</span>
-                            <h3>E-Commerce Site</h3>
-                            <p>A full-featured responsive online store with dynamic product listings and shopping cart functionality.</p>
+                            <span class="project-tag">Full Stack / Supabase</span>
+                            <h3>e-Pustakalaya</h3>
+                            <p>A complete electronic library management system featuring custom book readers, dashboard analytics, and secure Supabase-backed user accounts and database.</p>
                             <div class="project-links">
-                                <a href="#" class="btn btn-sm btn-outline">Live Demo</a>
-                                <a href="#" class="btn btn-sm btn-text">View Code <i class="fab fa-github"></i></a>
+                                <a href="../../e-pustakalaya/index.html" class="btn btn-sm btn-outline" target="_blank">Live Demo</a>
+                                <a href="https://github.com/bkalyan439/e-pustakalaya" class="btn btn-sm btn-text" target="_blank">View Code <i class="fab fa-github"></i></a>
                             </div>
                         </div>
                     </div>
-                    <!-- Project 2 -->
-                    <div class="project-card fade-in delay-1">
+
+                    <!-- Project 2: NEW STUDIO -->
+                    <div class="project-card fade-in delay-1" data-category="frontend">
                         <div class="project-img-placeholder dark">
-                            <i class="fas fa-graduation-cap fa-3x"></i>
+                            <i class="fas fa-camera-retro fa-3x"></i>
                         </div>
                         <div class="project-info">
-                            <span class="project-tag">Web Dev</span>
-                            <h3>E-Learning Platform</h3>
-                            <p>An interactive course management system allowing students to track progress and complete interactive lessons.</p>
+                            <span class="project-tag">Frontend / UI-UX</span>
+                            <h3>NEW STUDIO</h3>
+                            <p>A modern, visually stunning photography studio website featuring creative portfolios, service galleries, pricing packages, and dynamic response layouts.</p>
                             <div class="project-links">
-                                <a href="#" class="btn btn-sm btn-outline">Live Demo</a>
-                                <a href="#" class="btn btn-sm btn-text">View Code <i class="fab fa-github"></i></a>
+                                <a href="../../NEW STUDIO/index.html" class="btn btn-sm btn-outline" target="_blank">Live Demo</a>
+                                <a href="https://github.com/bkalyan439/NEW-STUDIO" class="btn btn-sm btn-text" target="_blank">View Code <i class="fab fa-github"></i></a>
                             </div>
                         </div>
                     </div>
-                    <!-- Project 3 -->
-                    <div class="project-card fade-in delay-2">
+
+                    <!-- Project 3: QR Code Generator -->
+                    <div class="project-card fade-in delay-2" data-category="react">
                         <div class="project-img-placeholder dark">
-                            <i class="fas fa-laptop-code fa-3x"></i>
+                            <i class="fas fa-qrcode fa-3x"></i>
                         </div>
                         <div class="project-info">
-                            <span class="project-tag">UI/UX</span>
-                            <h3>Coding Portfolio Site</h3>
-                            <p>A sleek, dark-themed portfolio conceptualized and designed from scratch using modern wireframing tools.</p>
+                            <span class="project-tag">React / Vite</span>
+                            <h3>QR Code Generator</h3>
+                            <p>A fast and responsive React utility powered by Vite. Generates customized high-quality QR codes on-the-fly with style parameters, real-time preview, and downloads.</p>
                             <div class="project-links">
-                                <a href="#" class="btn btn-sm btn-outline">Live Demo</a>
-                                <a href="#" class="btn btn-sm btn-text">View Code <i class="fab fa-github"></i></a>
+                                <a href="../../QR-Code_generator/dist/index.html" class="btn btn-sm btn-outline" target="_blank">Live Demo</a>
+                                <a href="https://github.com/bkalyan439/QR-Code_generator" class="btn btn-sm btn-text" target="_blank">View Code <i class="fab fa-github"></i></a>
                             </div>
                         </div>
                     </div>
-                    <!-- Project 4 -->
-                    <div class="project-card fade-in delay-3">
+
+                    <!-- Project 4: School Admission Portal -->
+                    <div class="project-card fade-in delay-3" data-category="full-stack">
                         <div class="project-img-placeholder dark">
-                            <i class="fas fa-box-open fa-3x"></i>
+                            <i class="fas fa-file-signature fa-3x"></i>
                         </div>
                         <div class="project-info">
-                            <span class="project-tag">Graphic Design</span>
-                            <h3>Product Showcase Page</h3>
-                            <p>High-conversion landing page with striking typography and visual components highlighting product features.</p>
+                            <span class="project-tag">Full Stack / Node.js</span>
+                            <h3>Admissions Portal</h3>
+                            <p>A student registration portal. Built with a Node.js Express server backend and a clean, responsive validation form frontend for seamless school enrollments.</p>
                             <div class="project-links">
-                                <a href="#" class="btn btn-sm btn-outline">Live Demo</a>
-                                <a href="#" class="btn btn-sm btn-text">View Code <i class="fab fa-github"></i></a>
+                                <a href="../../Submission Form/public/index.html" class="btn btn-sm btn-outline" target="_blank">Live Demo</a>
+                                <a href="https://github.com/bkalyan439/Submission-Form" class="btn btn-sm btn-text" target="_blank">View Code <i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: Learn Portal -->
+                    <div class="project-card fade-in" data-category="frontend">
+                        <div class="project-img-placeholder dark">
+                            <i class="fas fa-user-graduate fa-3x"></i>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-tag">Frontend / HTML5</span>
+                            <h3>Learn Web Portal</h3>
+                            <p>An expansive educational onboarding platform offering structured course catalogs, custom service details, registration steps, and clean signup flows.</p>
+                            <div class="project-links">
+                                <a href="../../learn/index.html" class="btn btn-sm btn-outline" target="_blank">Live Demo</a>
+                                <a href="https://github.com/bkalyan439/learn" class="btn btn-sm btn-text" target="_blank">View Code <i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: FaceFusion AI -->
+                    <div class="project-card fade-in delay-1" data-category="ai">
+                        <div class="project-img-placeholder dark">
+                            <i class="fas fa-brain fa-3x"></i>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-tag">AI / Python</span>
+                            <h3>FaceFusion AI</h3>
+                            <p>A cutting-edge deep learning package for swapping and enhancing faces. Powered by python with an interactive Gradio GUI framework and high efficiency.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/bkalyan439/facefusion" class="btn btn-sm btn-outline" target="_blank">Live Repository</a>
+                                <a href="https://github.com/bkalyan439/facefusion" class="btn btn-sm btn-text" target="_blank">View Code <i class="fab fa-github"></i></a>
                             </div>
                         </div>
                     </div>
@@ -302,7 +347,11 @@
                         </div>
                     </div>
                     <div class="contact-form-container">
-                        <form id="contactForm" class="contact-form">
+                        <form id="contactForm" action="https://formsubmit.co/bkalyan439@gmail.com" method="POST" class="contact-form">
+                            <!-- FormSubmit Configurations -->
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_subject" value="New Portfolio Message!">
+                            
                             <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" id="name" name="name" required placeholder="Your Name">

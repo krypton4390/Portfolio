@@ -94,24 +94,102 @@ document.addEventListener('DOMContentLoaded', () => {
         appearOnScroll.observe(fader);
     });
 
-    // Contact Form Submission Mock
+    // Project Category Filtering
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            button.classList.add('active');
+
+            const filterValue = button.getAttribute('data-filter');
+
+            projectCards.forEach(card => {
+                if (filterValue === 'all') {
+                    card.classList.remove('hide');
+                    card.style.animation = 'none';
+                    card.offsetHeight; // trigger reflow to restart animation
+                    card.style.animation = 'fadeInCard 0.5s ease forwards';
+                } else {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (cardCategory === filterValue) {
+                        card.classList.remove('hide');
+                        card.style.animation = 'none';
+                        card.offsetHeight; // trigger reflow to restart animation
+                        card.style.animation = 'fadeInCard 0.5s ease forwards';
+                    } else {
+                        card.classList.add('hide');
+                    }
+                }
+            });
+        });
+    });
+
+    // Contact Form Submission to Email (bkalyan439@gmail.com) via FormSubmit AJAX API
     const contactForm = document.getElementById('contactForm');
     const formSuccess = document.getElementById('formSuccess');
 
     if(contactForm) {
         contactForm.addEventListener('submit', (e) => {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            
+            // Premium Feedback: Loading State
+            const originalBtnHTML = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Sending... <i class="fas fa-circle-notch fa-spin"></i>';
+            
+            // Detect if running locally via file:// protocol
+            // (AJAX is blocked by browsers under file:// due to CORS origin restrictions)
+            if (window.location.protocol === 'file:') {
+                console.log('Running locally via file:// - falling back to traditional HTML POST submission.');
+                // Allow standard form POST submission to proceed
+                return;
+            }
+            
+            // If running on a web server (localhost, GitHub Pages, Vercel etc.), use seamless AJAX
             e.preventDefault(); // Prevent page reload
             
-            // Show Success Message
-            formSuccess.classList.remove('hidden');
-            
-            // Clear inputs
-            contactForm.reset();
-            
-            // Hide message after 5 seconds
-            setTimeout(() => {
-                formSuccess.classList.add('hidden');
-            }, 5000);
+            fetch("https://formsubmit.co/ajax/bkalyan439@gmail.com", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    message: message,
+                    _subject: `New Portfolio Message from ${name}`
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnHTML;
+                
+                // Show Success Message
+                formSuccess.innerHTML = '<i class="fas fa-check-circle"></i> Message sent successfully! I\'ll get back to you soon.';
+                formSuccess.classList.remove('hidden');
+                
+                // Clear inputs
+                contactForm.reset();
+                
+                // Hide message after 6 seconds
+                setTimeout(() => {
+                    formSuccess.classList.add('hidden');
+                }, 6000);
+            })
+            .catch(error => {
+                console.error('FormSubmit AJAX Error, falling back to standard submission:', error);
+                // Fallback: Submit the form traditionally
+                contactForm.submit();
+            });
         });
     }
 
