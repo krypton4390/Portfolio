@@ -3,18 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of ER. Kalyan Bhandari, Full Stack Web Developer & UI/UX Designer from Nepal.">
-    <meta name="keywords" content="web developer, frontend, UI/UX, Nepal, portfolio, Kalyan Bhandari">
-    <title>ER. Kalyan Bhandari | Web Developer</title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1522219513172819"
-     crossorigin="anonymous"></script>
+    <meta name="description" content="Portfolio of ER. Kalyan Bhandari, Full Stack Web Developer & UI/UX Designer from Nepal. Building modern, responsive, and robust web solutions.">
+    <meta name="keywords" content="web developer, frontend, backend, full stack, UI/UX, Nepal, portfolio, Kalyan Bhandari, freelance">
+    <meta name="author" content="ER. Kalyan Bhandari">
+    <meta name="theme-color" content="#040f13">
+    <title>ER. Kalyan Bhandari | Full Stack Developer & Designer</title>
+    <!-- Premium Typography: Space Grotesk + Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css?v=3">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css?v=5">
+    <!-- GSAP for premium animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Three.js for 3D hero -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Vanilla Tilt for card hover effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-spinner"></div>
+    </div>
+
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">ER. KALYAN BHANDARI</div>
@@ -23,29 +38,62 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#blog">Blog</a></li>
                 <li><a href="#testimonials">Reviews</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle Light/Dark Theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
         </div>
     </nav>
 
     <main>
         <!-- Hero Section -->
-        <section id="hero" class="hero section">
-            <div class="container hero-content">
-                <div class="hero-text fade-in">
+        <section id="hero" class="hero section" style="position: relative; overflow: hidden;">
+            <!-- Anti-Gravity 3D Scene Canvas -->
+            <canvas id="hero-3d-canvas" style="position: absolute; top: 0; right: 0; width: 100%; height: 100%; z-index: 0; pointer-events: auto;"></canvas>
+            
+            <div class="container hero-content" style="position: relative; z-index: 1; pointer-events: none;">
+                <div class="hero-text-box fade-in" style="pointer-events: auto;">
                     <h3 class="greeting">Hello there, I am</h3>
                     <h1 class="name">ER. Kalyan Bhandari</h1>
-                    <h2 class="role">Full Stack Web Developer & UI/UX Designer</h2>
-                    <p class="hero-desc">Building modern, responsive, and robust front-end & back-end solutions using the latest web technologies.</p>
+                    <h2 class="role">Full Stack Web Developer &amp; UI/UX Designer</h2>
+                    <p class="hero-desc">Building modern, responsive, and robust front-end &amp; back-end solutions using the latest web technologies.</p>
                     <div class="hero-cta">
-                        <a href="#contact" class="btn btn-primary">Hire Me</a>
-                        <a href="resume.pdf" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Download CV <i class="fas fa-download"></i></a>
+                        <a href="#contact" class="btn btn-primary">Hire Me <i class="fas fa-arrow-right"></i></a>
+                        <button id="view-cv-btn" class="btn btn-outline">View CV <i class="fas fa-file-alt"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Counter Bar -->
+        <section class="stats-bar section" style="padding: 0;" id="stats">
+            <div class="container">
+                <div class="stats-container fade-in">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="3">0</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="50">0</span>
+                        <span class="stat-label">Projects Done</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="30">0</span>
+                        <span class="stat-label">Happy Clients</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="8">0</span>
+                        <span class="stat-label">Technologies</span>
                     </div>
                 </div>
             </div>
@@ -79,59 +127,119 @@
             <div class="container">
                 <h2 class="section-title fade-in">My Skills</h2>
                 <div class="skills-grid fade-in">
-                    <div class="skill-card">
+                    <div class="skill-card" data-tilt data-tilt-max="12" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
                         <i class="fab fa-html5 skill-icon"></i>
                         <h4>HTML5</h4>
                     </div>
-                    <div class="skill-card">
+                    <div class="skill-card" data-tilt data-tilt-max="12" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
                         <i class="fab fa-css3-alt skill-icon"></i>
                         <h4>CSS3</h4>
                     </div>
-                    <div class="skill-card">
+                    <div class="skill-card" data-tilt data-tilt-max="12" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
                         <i class="fab fa-js skill-icon"></i>
                         <h4>JavaScript</h4>
                     </div>
-                    <div class="skill-card">
+                    <div class="skill-card" data-tilt data-tilt-max="12" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
                         <i class="fab fa-react skill-icon"></i>
                         <h4>React</h4>
                     </div>
-                    <div class="skill-card">
+                    <div class="skill-card" data-tilt data-tilt-max="12" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
+                        <i class="fab fa-node-js skill-icon"></i>
+                        <h4>Node.js</h4>
+                    </div>
+                    <div class="skill-card" data-tilt data-tilt-max="12" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
                         <i class="fas fa-layer-group skill-icon"></i>
                         <h4>UI/UX Design</h4>
                     </div>
-                    <div class="skill-card">
+                    <div class="skill-card" data-tilt data-tilt-max="12" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
                         <i class="fas fa-pen-nib skill-icon"></i>
                         <h4>Graphic Design</h4>
                     </div>
-                    <div class="skill-card">
+                    <div class="skill-card" data-tilt data-tilt-max="12" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
                         <i class="fas fa-chart-line skill-icon"></i>
-                        <h4>SEO Optimization</h4>
+                        <h4>SEO</h4>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Tech Stack Marquee -->
+        <div class="marquee-section">
+            <div class="marquee-track" id="marquee-track">
+                <!-- Items will be duplicated by JS for seamless loop -->
+                <span class="marquee-item"><i class="fab fa-html5"></i> HTML5</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><i class="fab fa-css3-alt"></i> CSS3</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><i class="fab fa-js-square"></i> JavaScript</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><i class="fab fa-react"></i> React</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><i class="fab fa-node-js"></i> Node.js</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><i class="fab fa-python"></i> Python</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><i class="fab fa-figma"></i> Figma</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><i class="fab fa-git-alt"></i> Git</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><i class="fas fa-database"></i> Supabase</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><i class="fas fa-bolt"></i> Vite</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><i class="fas fa-search"></i> SEO</span>
+                <span class="marquee-dot"></span>
+                <!-- Duplicate for seamless loop -->
+                <span class="marquee-item"><i class="fab fa-html5"></i> HTML5</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><i class="fab fa-css3-alt"></i> CSS3</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><i class="fab fa-js-square"></i> JavaScript</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><i class="fab fa-react"></i> React</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><i class="fab fa-node-js"></i> Node.js</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><i class="fab fa-python"></i> Python</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><i class="fab fa-figma"></i> Figma</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><i class="fab fa-git-alt"></i> Git</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><i class="fas fa-database"></i> Supabase</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><i class="fas fa-bolt"></i> Vite</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><i class="fas fa-search"></i> SEO</span>
+                <span class="marquee-dot"></span>
+            </div>
+        </div>
 
         <!-- Services Section -->
         <section id="services" class="services section bg-secondary">
             <div class="container">
                 <h2 class="section-title fade-in">What I Do</h2>
                 <div class="services-grid">
-                    <div class="service-card fade-in">
+                    <div class="service-card fade-in" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
                         <div class="service-icon"><i class="fas fa-code"></i></div>
                         <h3>Web Development</h3>
                         <p>Custom responsive websites using modern HTML5, CSS3, JavaScript & frameworks to deliver seamless digital experiences.</p>
                     </div>
-                    <div class="service-card fade-in delay-1">
+                    <div class="service-card fade-in delay-1" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
                         <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
                         <h3>UI/UX Design</h3>
                         <p>Intuitive, user-centered interface design with comprehensive wireframing and prototyping capabilities.</p>
                     </div>
-                    <div class="service-card fade-in delay-2">
+                    <div class="service-card fade-in delay-2" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
                         <div class="service-icon"><i class="fas fa-vector-square"></i></div>
                         <h3>Graphic Design</h3>
                         <p>Creative brand identity, logos, and visual assets tailored for both high-impact digital and print media.</p>
                     </div>
-                    <div class="service-card fade-in delay-3">
+                    <div class="service-card fade-in delay-3" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
                         <div class="service-icon"><i class="fas fa-search-dollar"></i></div>
                         <h3>SEO Optimization</h3>
                         <p>Advanced on-page SEO, performance tuning, and impactful search engine visibility strategies to rank your site higher.</p>
@@ -140,8 +248,45 @@
             </div>
         </section>
 
+        <!-- Experience Timeline Section -->
+        <section id="experience" class="experience section">
+            <div class="container">
+                <h2 class="section-title fade-in">Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-content">
+                            <span class="timeline-date">2023 — Present</span>
+                            <h3>Freelance Full Stack Developer</h3>
+                            <p>Building scalable web apps, SaaS platforms, and custom solutions for clients worldwide using React, Node.js, and Supabase.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in delay-1">
+                        <div class="timeline-content">
+                            <span class="timeline-date">2022 — 2023</span>
+                            <h3>UI/UX Designer & Frontend Developer</h3>
+                            <p>Designed and developed modern user interfaces, conducted user research, and delivered pixel-perfect responsive web experiences.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in delay-2">
+                        <div class="timeline-content">
+                            <span class="timeline-date">2021 — 2022</span>
+                            <h3>Junior Web Developer</h3>
+                            <p>Started professional journey building websites with HTML, CSS, JavaScript, and learning modern frameworks and best practices.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in delay-3">
+                        <div class="timeline-content">
+                            <span class="timeline-date">2018 — 2022</span>
+                            <h3>B.E. in Computer Engineering</h3>
+                            <p>Graduated from Lumbini Engineering College, Pokhara University with a focus on software engineering and web technologies.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Projects Section -->
-        <section id="projects" class="projects section">
+        <section id="projects" class="projects section bg-secondary">
             <div class="container">
                 <h2 class="section-title fade-in">Featured Projects</h2>
                 
@@ -156,8 +301,10 @@
 
                 <div class="projects-grid">
                     <!-- Project 1: e-Pustakalaya -->
-                    <div class="project-card fade-in" data-category="full-stack">
-                        <div class="project-img-placeholder dark">
+                    <div class="project-card fade-in" data-category="full-stack" data-tilt data-tilt-max="6" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
+                        <div class="project-img-placeholder" style="background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);">
+                            <div class="project-grid-overlay"></div>
+                            <div class="project-graphic-circle"></div>
                             <i class="fas fa-book-open fa-3x"></i>
                         </div>
                         <div class="project-info">
@@ -172,8 +319,10 @@
                     </div>
 
                     <!-- Project 2: New Studio -->
-                    <div class="project-card fade-in delay-1" data-category="frontend">
-                        <div class="project-img-placeholder dark">
+                    <div class="project-card fade-in delay-1" data-category="frontend" data-tilt data-tilt-max="6" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
+                        <div class="project-img-placeholder" style="background: linear-gradient(135deg, #2c3e50, #fd746c);">
+                            <div class="project-grid-overlay"></div>
+                            <div class="project-graphic-circle"></div>
                             <i class="fas fa-camera-retro fa-3x"></i>
                         </div>
                         <div class="project-info">
@@ -188,8 +337,10 @@
                     </div>
 
                     <!-- Project 3: QR Crystal -->
-                    <div class="project-card fade-in delay-2" data-category="react">
-                        <div class="project-img-placeholder dark">
+                    <div class="project-card fade-in delay-2" data-category="react" data-tilt data-tilt-max="6" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
+                        <div class="project-img-placeholder" style="background: linear-gradient(135deg, #005c97, #363795);">
+                            <div class="project-grid-overlay"></div>
+                            <div class="project-graphic-circle"></div>
                             <i class="fas fa-qrcode fa-3x"></i>
                         </div>
                         <div class="project-info">
@@ -204,8 +355,10 @@
                     </div>
 
                     <!-- Project 4: OSS Library -->
-                    <div class="project-card fade-in delay-3" data-category="full-stack">
-                        <div class="project-img-placeholder dark">
+                    <div class="project-card fade-in delay-3" data-category="full-stack" data-tilt data-tilt-max="6" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
+                        <div class="project-img-placeholder" style="background: linear-gradient(135deg, #1f4037, #2c5364);">
+                            <div class="project-grid-overlay"></div>
+                            <div class="project-graphic-circle"></div>
                             <i class="fas fa-book fa-3x"></i>
                         </div>
                         <div class="project-info">
@@ -220,8 +373,10 @@
                     </div>
 
                     <!-- Project 5: School ERP -->
-                    <div class="project-card fade-in delay-4" data-category="full-stack">
-                        <div class="project-img-placeholder dark">
+                    <div class="project-card fade-in delay-4" data-category="full-stack" data-tilt data-tilt-max="6" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
+                        <div class="project-img-placeholder" style="background: linear-gradient(135deg, #1d976c, #1a3c40);">
+                            <div class="project-grid-overlay"></div>
+                            <div class="project-graphic-circle"></div>
                             <i class="fas fa-school fa-3x"></i>
                         </div>
                         <div class="project-info">
@@ -236,8 +391,10 @@
                     </div>
 
                     <!-- Project 6: Portfolio -->
-                    <div class="project-card fade-in delay-5" data-category="frontend">
-                        <div class="project-img-placeholder dark">
+                    <div class="project-card fade-in delay-5" data-category="frontend" data-tilt data-tilt-max="6" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
+                        <div class="project-img-placeholder" style="background: linear-gradient(135deg, #141e30, #243b55);">
+                            <div class="project-grid-overlay"></div>
+                            <div class="project-graphic-circle"></div>
                             <i class="fas fa-user fa-3x"></i>
                         </div>
                         <div class="project-info">
@@ -252,8 +409,10 @@
                     </div>
 
                     <!-- Project 7: DEVPATH -->
-                    <div class="project-card fade-in delay-6" data-category="full-stack">
-                        <div class="project-img-placeholder dark">
+                    <div class="project-card fade-in delay-6" data-category="full-stack" data-tilt data-tilt-max="6" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
+                        <div class="project-img-placeholder" style="background: linear-gradient(135deg, #aa076b, #61045f);">
+                            <div class="project-grid-overlay"></div>
+                            <div class="project-graphic-circle"></div>
                             <i class="fas fa-route fa-3x"></i>
                         </div>
                         <div class="project-info">
@@ -268,8 +427,10 @@
                     </div>
 
                     <!-- Project 8: FaceFusion AI -->
-                    <div class="project-card fade-in delay-7" data-category="ai">
-                        <div class="project-img-placeholder dark">
+                    <div class="project-card fade-in delay-7" data-category="ai" data-tilt data-tilt-max="6" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
+                        <div class="project-img-placeholder" style="background: linear-gradient(135deg, #4b6cb7, #182848);">
+                            <div class="project-grid-overlay"></div>
+                            <div class="project-graphic-circle"></div>
                             <i class="fas fa-brain fa-3x"></i>
                         </div>
                         <div class="project-info">
@@ -287,11 +448,11 @@
         </section>
 
         <!-- Testimonials Section -->
-        <section id="testimonials" class="testimonials section bg-secondary">
+        <section id="testimonials" class="testimonials section">
             <div class="container">
                 <h2 class="section-title fade-in">Client Testimonials</h2>
                 <div class="testimonials-grid">
-                    <div class="testi-card fade-in">
+                    <div class="testi-card fade-in" data-tilt data-tilt-max="6" data-tilt-speed="400">
                         <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
                         <p class="testi-text">"Kalyan's code quality is outstanding. He delivered exactly what was requested with impeccable attention to detail."</p>
                         <div class="testi-author">
@@ -299,7 +460,7 @@
                             <span>Developer</span>
                         </div>
                     </div>
-                    <div class="testi-card fade-in delay-1">
+                    <div class="testi-card fade-in delay-1" data-tilt data-tilt-max="6" data-tilt-speed="400">
                         <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
                         <p class="testi-text">"A fantastic partner for our digital transformation. The website runs incredibly fast and looks stunning."</p>
                         <div class="testi-author">
@@ -307,7 +468,7 @@
                             <span>Business Owner</span>
                         </div>
                     </div>
-                    <div class="testi-card fade-in delay-2">
+                    <div class="testi-card fade-in delay-2" data-tilt data-tilt-max="6" data-tilt-speed="400">
                         <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
                         <p class="testi-text">"Highly recommend his UI/UX skills. He understood my vision immediately and crafted an intuitive interface."</p>
                         <div class="testi-author">
@@ -315,7 +476,7 @@
                             <span>Client</span>
                         </div>
                     </div>
-                    <div class="testi-card fade-in delay-3">
+                    <div class="testi-card fade-in delay-3" data-tilt data-tilt-max="6" data-tilt-speed="400">
                         <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
                         <p class="testi-text">"Working with Kalyan was seamless. The web development process was transparent and perfectly aligned with my goals."</p>
                         <div class="testi-author">
@@ -328,7 +489,7 @@
         </section>
 
         <!-- Blog Section -->
-        <section id="blog" class="blog section">
+        <section id="blog" class="blog section bg-secondary">
             <div class="container">
                 <div class="section-header fade-in">
                     <h2 class="section-title">Daily Blogs</h2>
@@ -413,13 +574,136 @@
                 &copy; 2026 ER. Kalyan Bhandari. All rights reserved.
             </div>
             <div class="footer-social">
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/kalyan-bhandari-a6658237b" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/krypton4390" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/ign.krypton/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/krypton439" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             </div>
         </div>
     </footer>
 
-    <script src="js/script.js?v=3"></script>
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Premium Interactive CV Modal -->
+    <div id="cv-modal" class="cv-modal">
+        <div class="cv-modal-backdrop" id="cv-modal-close-bg"></div>
+        <div class="cv-modal-content">
+            <button class="cv-modal-close" id="cv-modal-close-btn" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="cv-modal-actions">
+                <button id="cv-print-btn" class="btn btn-primary btn-sm">
+                    <i class="fas fa-print"></i> Print Resume / Save PDF
+                </button>
+            </div>
+            
+            <!-- Printable Resume Container -->
+            <div class="resume-sheet" id="printable-resume">
+                <header class="resume-header">
+                    <div class="resume-header-main">
+                        <h1>ER. Kalyan Bhandari</h1>
+                        <h2>Full Stack Web Developer &amp; UI/UX Designer</h2>
+                        <p class="resume-summary">
+                            Results-driven Computer Engineering graduate and Full Stack Developer with 3+ years of experience building modern, high-performance web applications and intuitive interfaces. Specializes in responsive frontend designs and robust backend integrations.
+                        </p>
+                    </div>
+                    <div class="resume-contact-info">
+                        <div><i class="fas fa-envelope"></i> <a href="mailto:bkalyan439@gmail.com">bkalyan439@gmail.com</a></div>
+                        <div><i class="fas fa-phone-alt"></i> <a href="tel:+9779860523997">+977 9860523997</a></div>
+                        <div><i class="fas fa-map-marker-alt"></i> Nepal</div>
+                        <div><i class="fab fa-linkedin"></i> linkedin.com/in/kalyan-bhandari-a6658237b</div>
+                        <div><i class="fab fa-github"></i> github.com/krypton4390</div>
+                    </div>
+                </header>
+                
+                <hr class="resume-divider">
+                
+                <div class="resume-body">
+                    <div class="resume-column-left">
+                        <section class="resume-section">
+                            <h3><i class="fas fa-briefcase"></i> Work Experience</h3>
+                            <div class="resume-item">
+                                <div class="resume-item-header">
+                                    <h4>Freelance Full Stack Developer</h4>
+                                    <span class="resume-item-date">2023 — Present</span>
+                                </div>
+                                <span class="resume-item-company">Self-employed</span>
+                                <p>Architect and deploy end-to-end web applications using React, Node.js, and Supabase. Optimize site speeds and SEO ranking. Work closely with clients globally to deliver tailor-made software solutions.</p>
+                            </div>
+                            
+                            <div class="resume-item">
+                                <div class="resume-item-header">
+                                    <h4>UI/UX Designer &amp; Frontend Developer</h4>
+                                    <span class="resume-item-date">2022 — 2023</span>
+                                </div>
+                                <span class="resume-item-company">Digital Tech Agency</span>
+                                <p>Designed and built user-centered interfaces. Translated Figma mockups into pixel-perfect, interactive responsive web pages. Conducted usability audits to enhance engagement rates.</p>
+                            </div>
+                            
+                            <div class="resume-item">
+                                <div class="resume-item-header">
+                                    <h4>Junior Web Developer</h4>
+                                    <span class="resume-item-date">2021 — 2022</span>
+                                </div>
+                                <span class="resume-item-company">Tech Startup</span>
+                                <p>Assisted in frontend web development using HTML5, CSS3, JavaScript. Managed code versioning with Git. Optimized existing layouts for cross-device compatibility.</p>
+                            </div>
+                        </section>
+                        
+                        <section class="resume-section">
+                            <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                            <div class="resume-item">
+                                <div class="resume-item-header">
+                                    <h4>B.E. in Computer Engineering</h4>
+                                    <span class="resume-item-date">2018 — 2022</span>
+                                </div>
+                                <span class="resume-item-company">Lumbini Engineering College, Pokhara University</span>
+                                <p>Acquired strong foundations in software engineering, database design, algorithms, and web technologies.</p>
+                            </div>
+                        </section>
+                    </div>
+                    
+                    <div class="resume-column-right">
+                        <section class="resume-section">
+                            <h3><i class="fas fa-cogs"></i> Technical Skills</h3>
+                            <div class="resume-skills-group">
+                                <h4>Frontend</h4>
+                                <p>HTML5, CSS3, JavaScript (ES6+), React.js, Vite, Bootstrap, Tailwind CSS</p>
+                            </div>
+                            <div class="resume-skills-group">
+                                <h4>Backend &amp; Databases</h4>
+                                <p>Node.js, Express, Python, Supabase, PostgreSQL, REST APIs</p>
+                            </div>
+                            <div class="resume-skills-group">
+                                <h4>Design &amp; SEO</h4>
+                                <p>Figma, Adobe XD, Graphic Design, Web Performance Tuning, SEO Best Practices</p>
+                            </div>
+                            <div class="resume-skills-group">
+                                <h4>Tools &amp; Workflow</h4>
+                                <p>Git/GitHub, Netlify, Vercel, VS Code, Agile Methods</p>
+                            </div>
+                        </section>
+                        
+                        <section class="resume-section">
+                            <h3><i class="fas fa-folder-open"></i> Key Projects</h3>
+                            <ul class="resume-projects-list">
+                                <li><strong>e-Pustakalaya:</strong> Complete electronic library with analytics and Supabase database.</li>
+                                <li><strong>New Studio:</strong> Highly interactive photography portfolio website.</li>
+                                <li><strong>QR Crystal:</strong> Sleek web-based real-time QR code generator.</li>
+                                <li><strong>FaceFusion AI:</strong> AI face swapping platform utilizing Gradio GUI.</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js?v=5"></script>
+    <script src="js/hero3d.js"></script>
 </body>
 </html>
